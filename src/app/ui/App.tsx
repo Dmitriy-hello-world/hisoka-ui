@@ -1,12 +1,13 @@
-import { Header } from "widgets/header";
+import { CssBaseline } from '@mui/material';
+import RootRouter from 'app/router/rootRouter';
 
 const App = () => {
   return (
     <>
-      <Header />
-      <hr/>
+      <CssBaseline />
+      <RootRouter />
     </>
   );
-}
+};
 
 export default App;

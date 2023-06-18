@@ -1,11 +1,11 @@
-import { AppBar, Container } from "@mui/material";
+import { AppBar, Container, Toolbar } from '@mui/material';
 
 export const Header = () => {
   return (
-    <AppBar>
+    <AppBar position="relative">
       <Container>
-    navBar
-    </Container>
-  </AppBar>
+        <Toolbar disableGutters></Toolbar>
+      </Container>
+    </AppBar>
   );
 };
