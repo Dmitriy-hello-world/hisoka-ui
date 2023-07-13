@@ -1,0 +1,43 @@
+.logo {
+  text-decoration: none;
+  color: white;
+  align-items: center;
+  display: none;
+
+  @media (min-width: 900px) {
+    display: flex;
+  }
+}
+
+.img {
+  margin-right: 0.5rem;
+}
+
+.text {
+  font-size: 1.7rem;
+  font-family: monospace;
+  font-weight: 700;
+  flex-grow: 0;
+  letter-spacing: 0.2rem;
+  text-align: center;
+}
+
+.logo__mobile {
+  margin-right: 2;
+  display: none;
+  text-decoration: none;
+  color: white;
+  align-items: center;
+
+  @media (max-width: 899px) {
+    display: flex;
+  }
+
+}
+
+.text__mobile {
+  font-size: 1.7rem;
+  font-family: monospace;
+  font-weight: 700;
+  letter-spacing: 0.1rem;
+}

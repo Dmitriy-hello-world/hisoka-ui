@@ -1,17 +1,23 @@
 import { Routes, Route } from 'react-router-dom';
-import { MainPage, NoFoundPage } from 'app/router/lib/lazyPages';
 import Layout from './lib/layout';
 import CustomSuspense from './lib/route';
+
+import { pagesConfiguration } from 'app/config/config';
 
 const RootRouter = () => {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
-        <Route index element={<CustomSuspense RoutElement={MainPage} />} />
-        <Route
-          path="*"
-          element={<CustomSuspense RoutElement={NoFoundPage} />}
-        />
+        {pagesConfiguration.map((pageItem, index) => {
+          const attr = {
+            element: <CustomSuspense RoutElement={pageItem.componentItem} />,
+            index: pageItem.name === 'Home' ? true : false,
+            path: pageItem.name === 'Home' ? '' : pageItem.link,
+            key: index,
+          };
+
+          return <Route {...attr} />;
+        })}
       </Route>
     </Routes>
   );

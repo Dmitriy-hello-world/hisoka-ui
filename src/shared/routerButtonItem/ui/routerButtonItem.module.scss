@@ -1,0 +1,85 @@
+.navLink {
+  position: relative;
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
+  padding: 0.4rem;
+  font-family: monospace;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+
+  &_active {
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+    padding: 0.4rem;;
+    font-family: monospace;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  &:after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    display: block;
+    height: 1px;
+    transition: all 0.3s ease;
+    margin-bottom: -2px;
+    transition: all 300ms ease-in;
+    bottom: 25%;
+    left: 0;
+  }
+
+  &:before {
+    content: "";
+    position: absolute;
+    width: 0%;
+    display: block;
+    height: 1px;
+    transition: all 0.3s ease;
+    margin-top: -2px;
+    transition: all 300ms ease-in;
+    top: 25%;
+    right: 0;
+  }
+
+  &:hover:after {
+    width: 100%;
+    height: 1px;
+    bottom: 25%;
+    background-color: #fff;
+  }
+
+  &:hover:before {
+    width: 100%;
+    height: 1px;
+    top: 25%;
+    background-color: #fff;
+  }
+}
+
+.navLink__mob {
+  position: relative;
+  text-decoration: none;
+  color: grey;
+  font-size: 20px;
+  padding: 0.4rem;
+  font-family: monospace;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+
+  &_active {
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+    padding: 0.4rem;;
+    font-family: monospace;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+  }
+}
