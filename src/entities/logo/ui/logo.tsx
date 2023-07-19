@@ -2,18 +2,12 @@ import { Link } from 'react-router-dom';
 import StyleIcon from '@mui/icons-material/Style';
 
 import style from './logo.module.scss';
-import { logoProps } from 'entities/logo/lib/logoTypes';
 
-export const Logo = ({ type }: logoProps) => {
+export const Logo = () => {
   return (
-    <Link
-      className={type === 'desktop' ? style.logo : style.logo__mobile}
-      to="/"
-    >
+    <Link className={style.logo} to="/">
       <StyleIcon className={style.img} />
-      <span className={type === 'desktop' ? style.text : style.text__mobile}>
-        Hisoka
-      </span>
+      <span className={style.text}>Hisoka</span>
     </Link>
   );
 };

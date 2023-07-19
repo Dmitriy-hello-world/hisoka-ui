@@ -1,6 +1,8 @@
 import { AppBar, Container, Toolbar } from '@mui/material';
 import { HeaderMobile } from 'features/headerMobile';
 import { HeaderDesktop } from 'features/headerDesktop';
+import { Search } from 'features/search';
+import { PersonalMenu } from 'features/personalMenu';
 
 export const Header = () => {
   return (
@@ -9,6 +11,8 @@ export const Header = () => {
         <Toolbar disableGutters>
           <HeaderDesktop />
           <HeaderMobile />
+          <Search isAuthorized={true} />
+          <PersonalMenu />
         </Toolbar>
       </Container>
     </AppBar>
