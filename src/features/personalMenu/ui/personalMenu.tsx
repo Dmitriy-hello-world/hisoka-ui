@@ -1,9 +1,10 @@
 import { PersonalMenuList } from 'entities/personalMenuList';
 import { PersonalMenuName } from 'entities/personalMenuName';
+import { personalMenuProps } from 'features/personalMenu/lib/personalMenuTypes';
 import { useGetNavigateFunctions } from 'features/personalMenu/lib/useGetNavigateFunctions';
 
-export const PersonalMenu = () => {
-  const { anchorEl, handleClick, open, handleClose, handleOpenModal } =
+export const PersonalMenu = ({ handleOpenModal }: personalMenuProps) => {
+  const { anchorEl, handleClick, open, handleClose } =
     useGetNavigateFunctions();
 
   return (

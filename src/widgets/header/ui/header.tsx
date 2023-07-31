@@ -3,8 +3,12 @@ import { HeaderMobile } from 'features/headerMobile';
 import { HeaderDesktop } from 'features/headerDesktop';
 import { Search } from 'features/search';
 import { PersonalMenu } from 'features/personalMenu';
+import { useAtom } from 'jotai';
+import { handleOpenModal } from 'widgets/modal';
 
 export const Header = () => {
+  const [_, setOpenModal] = useAtom(handleOpenModal);
+
   return (
     <AppBar position="relative">
       <Container>
@@ -12,7 +16,7 @@ export const Header = () => {
           <HeaderDesktop />
           <HeaderMobile />
           <Search isAuthorized={true} />
-          <PersonalMenu />
+          <PersonalMenu handleOpenModal={setOpenModal} />
         </Toolbar>
       </Container>
     </AppBar>
