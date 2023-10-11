@@ -1,5 +1,7 @@
 {
     "extends": [
-      "react-app"
-    ]
+      "react-app",
+      "plugin:@tanstack/eslint-plugin-query/recommended"
+    ],
+    "plugins": ["@tanstack/query"]
 }

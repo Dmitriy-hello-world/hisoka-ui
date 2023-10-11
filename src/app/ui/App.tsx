@@ -1,5 +1,6 @@
 import { CssBaseline } from '@mui/material';
 import RootRouter from 'app/router/rootRouter';
+import { CustomSnackbar } from 'features/customSnackBar';
 import { CustomModal } from 'widgets/modal';
 
 const App = () => {
@@ -8,6 +9,7 @@ const App = () => {
       <CssBaseline />
       <RootRouter />
       <CustomModal />
+      <CustomSnackbar />
     </>
   );
 };

@@ -3,7 +3,11 @@ import { PersonalMenuName } from 'entities/personalMenuName';
 import { personalMenuProps } from 'features/personalMenu/lib/personalMenuTypes';
 import { useGetNavigateFunctions } from 'features/personalMenu/lib/useGetNavigateFunctions';
 
-export const PersonalMenu = ({ handleOpenModal }: personalMenuProps) => {
+export const PersonalMenu = ({
+  handleOpenModal,
+  token,
+  user,
+}: personalMenuProps) => {
   const { anchorEl, handleClick, open, handleClose } =
     useGetNavigateFunctions();
 
@@ -12,8 +16,8 @@ export const PersonalMenu = ({ handleOpenModal }: personalMenuProps) => {
       <PersonalMenuName
         handleClick={handleClick}
         handleOpenModal={handleOpenModal}
-        firstName="name"
-        isAuthorized={false}
+        firstName={user?.firstName}
+        isAuthorized={!!token}
         open={open}
       />
       <PersonalMenuList
@@ -23,7 +27,7 @@ export const PersonalMenu = ({ handleOpenModal }: personalMenuProps) => {
         open={open}
         firstName="Dmytro"
         secondName="Nykytenko"
-        isAuthorized={false}
+        isAuthorized={!!token}
       />
     </>
   );

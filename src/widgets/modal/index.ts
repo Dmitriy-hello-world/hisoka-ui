@@ -1,2 +1,2 @@
 export { CustomModal } from './ui/customModal';
-export { handleOpenModal } from './model/model';
+export { handleOpenModal, handleCloseModal } from './model/model';

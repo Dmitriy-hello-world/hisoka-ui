@@ -26,8 +26,11 @@ export const pagesConfiguration = [
     link: '*',
     componentItem: NoFoundPage,
   },
-];
+] as const;
 
 export const pagesForNav = pagesConfiguration.filter(
   (page) => page.name !== 'Not Found Page'
 );
+
+const pagesLinks = pagesForNav.map((item) => item.link);
+export type pagesLinkValues = (typeof pagesLinks)[number];

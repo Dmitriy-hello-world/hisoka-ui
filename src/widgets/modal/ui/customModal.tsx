@@ -1,11 +1,14 @@
-import { Box, Modal, Typography } from '@mui/material';
+import { Box, Modal } from '@mui/material';
+import { RegistrationForm } from 'features/registrationForm';
+import { EnterForm } from 'features/enterForm';
 import { useAtom } from 'jotai';
-import { style } from 'widgets/modal/consts/style';
+import { styles } from 'widgets/modal/consts/styles';
 import {
   isModalOpenBase,
   handleOpenModal,
   handleCloseModal,
 } from 'widgets/modal/model/model';
+import style from './customModal.module.scss';
 
 export const CustomModal = () => {
   const [isModalOpen] = useAtom(isModalOpenBase);
@@ -20,13 +23,11 @@ export const CustomModal = () => {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <Box sx={style}>
-          <Typography id="modal-modal-title" variant="h6" component="h2">
-            {openModalType === 'log' ? 'log' : 'reg'}
-          </Typography>
-          {/* <Typography id="modal-modal-description" sx={{ mt: 2 }}> */}
-          {/* Duis mollis, est non commodo luctus, nisi erat porttitor ligula. */}
-          {/* </Typography> */}
+        <Box sx={styles} className={style.wrapper}>
+          {openModalType === 'reg' && (
+            <RegistrationForm closeModal={closeModal} />
+          )}
+          {openModalType === 'log' && <EnterForm />}
         </Box>
       </Modal>
     </div>

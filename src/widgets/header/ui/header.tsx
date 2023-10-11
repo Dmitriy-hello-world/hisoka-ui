@@ -5,9 +5,15 @@ import { Search } from 'features/search';
 import { PersonalMenu } from 'features/personalMenu';
 import { useAtom } from 'jotai';
 import { handleOpenModal } from 'widgets/modal';
+import { useGetUserFun } from 'widgets/header/model/model';
+import { handleCloseModal } from 'widgets/modal';
+import { getToken } from 'app/tanstackQuery/token';
 
 export const Header = () => {
-  const [_, setOpenModal] = useAtom(handleOpenModal);
+  const [, setOpenModal] = useAtom(handleOpenModal);
+  const [, closeModal] = useAtom(handleCloseModal);
+  const { data: user } = useGetUserFun(closeModal);
+  const token = getToken();
 
   return (
     <AppBar position="relative">
@@ -15,8 +21,12 @@ export const Header = () => {
         <Toolbar disableGutters>
           <HeaderDesktop />
           <HeaderMobile />
-          <Search isAuthorized={true} />
-          <PersonalMenu handleOpenModal={setOpenModal} />
+          <Search isAuthorized={token} />
+          <PersonalMenu
+            token={token}
+            user={user?.data}
+            handleOpenModal={setOpenModal}
+          />
         </Toolbar>
       </Container>
     </AppBar>

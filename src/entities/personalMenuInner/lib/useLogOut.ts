@@ -1,4 +1,9 @@
+import { client } from 'app/tanstackQuery/tanstackQuery';
+import { deleteToken } from 'app/tanstackQuery/token';
+
 export const useLogOut = () => {
-  // dispatch(logOutUser());
-  localStorage.removeItem('token');
+  deleteToken();
+  client.invalidateQueries({
+    queryKey: ['user'],
+  });
 };
