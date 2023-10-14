@@ -1,0 +1,34 @@
+@import 'app/styles/index.scss';
+
+.text {
+  text-align: center;
+  letter-spacing: 5px;
+  margin-top: 50px;
+  font-weight: 400;
+
+  @media (max-Width: 1140px) {
+    font-size: 36px;
+  }
+
+  @media (max-Width: 740px) {
+    font-size: 26px;
+  }
+
+  @media (max-Width: 600px) {
+    font-size: 16px;
+    letter-spacing: 3px;
+  }
+
+  @media (max-Width: 440px) {
+    font-size: 16px;
+    letter-spacing: 1px;
+  }
+}
+
+.logIn {
+  cursor: pointer;
+  color: $base-color;
+    &:hover {
+      text-decoration: underline;
+    }
+}

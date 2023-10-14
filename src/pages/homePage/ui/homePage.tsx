@@ -9,7 +9,7 @@ const HomePage = () => {
     <Container className={style.wrapper}>
       <Box className={style.inner}>
         <Typography className={style.header} variant="h1" gutterBottom>
-          Hisokacards
+          Hisoka Cards
         </Typography>
         <Typography variant="h4" className={style.subTitle} gutterBottom>
           What does it mean?
