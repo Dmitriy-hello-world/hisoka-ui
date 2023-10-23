@@ -5,6 +5,7 @@ import { useAtom } from 'jotai';
 import { handleOpenSnackBar } from 'features/customSnackBar';
 import { deleteToken, getToken } from 'app/tanstackQuery/token';
 import { userResponse } from 'widgets/header/lib/lib';
+import { useState } from 'react';
 
 const getUser = async (token: string) => {
   try {
@@ -27,6 +28,7 @@ const getUser = async (token: string) => {
 
 export const useGetUserFun = (closeModal: () => void) => {
   const [_, openSnackBar] = useAtom(handleOpenSnackBar);
+  const [isFirstTime, setIsFirstTime] = useState(true);
 
   return useQuery({
     queryFn: () => getUser(getToken() || ''),
@@ -36,22 +38,21 @@ export const useGetUserFun = (closeModal: () => void) => {
       if (data?.error?.code === 'FORMAT_ERROR') {
         return;
       }
+      if (isFirstTime) {
+        openSnackBar({
+          type: 'success',
+          message:
+            'Have nice learning' +
+            ` ${
+              data?.data?.firstName !== 'undefined' ? data?.data?.firstName : ''
+            }`,
+        });
+        setIsFirstTime(false);
+      }
       closeModal();
-      openSnackBar({
-        type: 'success',
-        message:
-          'Have nice learning' +
-          ` ${
-            data?.data?.firstName !== 'undefined' ? data?.data?.firstName : ''
-          }`,
-      });
     },
     onError: () => {
       deleteToken();
-      openSnackBar({
-        type: 'error',
-        message: 'Ops.. Something went wrong',
-      });
     },
   });
 };

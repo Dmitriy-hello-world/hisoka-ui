@@ -6,6 +6,7 @@ import style from './pageTitle.module.scss';
 
 export const PageTitle = ({ text, isAuthorizated }: PageTitleProps) => {
   const [, openModal] = useAtom(handleOpenModal);
+  console.log(isAuthorizated);
   return (
     <>
       {isAuthorizated ? (
